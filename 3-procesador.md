@@ -10,7 +10,9 @@ Asignar núcleos de CPU específicos:
 ```
 
 **¿Como saber el numero de procesadores virtuales que tiene una máquina?**
-## COMPLETAR
+En windows se puede ver mediante el administrador de tareas, en la parte de rendimiento del CPU.
+<img width="567" height="173" alt="image" src="https://github.com/user-attachments/assets/c006d73f-9058-4a8a-b32e-e0892b15a097" />
+
 
 ## Ejemplos
 _Puedes copiar y ejecutar directamente cada uno de los comandos_
