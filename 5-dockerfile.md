@@ -53,17 +53,26 @@ docker build -t <nombre imagen>:<tag> .
 ### Ejecutar el archivo Dockerfile y construir una imagen en la versión 1.0
 No olvides verificar en qué directorio se encuentra el archivo Dockerfile
 ```
-
+docker build -t mi-imagen-apache:1.0 .
 ```
 
 **¿Cuántos pasos se han ejecutado?**
-# RESPONDER 
+
+Se ejecutaron 5 pasos
 
 ### Inspeccionar la imagen creada
-# COMPLETAR CON UNA CAPTURA
+
+```
+docker inspect mi-imagen-apache:1.0
+```
+
+<img width="1037" height="514" alt="image" src="https://github.com/user-attachments/assets/d118bfcc-5978-4ac0-8eee-408d79060d41" />
+
 
 **Modificar el archivo index.html para incluir su nombre y luego crear una nueva versión de la imagen anterior**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
+
+Se ejecutan 5 pasos de construcción de capas. El número de pasos de construcción sigue siendo el mismo porque el Dockerfile no ha cambiado.
 
 ## Mecanismo de caché
 Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso de construcción y evitar la repetición de pasos que no han cambiado. Cada instrucción en un Dockerfile crea una capa en la imagen final. Docker intenta reutilizar las capas de una construcción anterior si no han cambiado, lo que reduce significativamente el tiempo de construcción.
@@ -75,14 +84,17 @@ Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso
 
 ### Crear un contenedor a partir de las imagen creada, mapear todos los puertos
 ```
-
+docker run -d -P --name mi-contenedor-v1 mi-imagen-apache:1.0
 ```
+<img width="1084" height="514" alt="image" src="https://github.com/user-attachments/assets/c84a70d7-8571-47cf-91f7-5ec62325ab71" />
 
 ### ¿Con que puerto host se está realizando el mapeo?
-# COMPLETAR CON LA RESPUESTA
+80
 
 **¿Qué es una imagen huérfana?**
-# COMPLETAR CON LA RESPUESTA
+
+Una imagen huérfana de Docker es una imagen sin etiqueta que no es la imagen padre de ninguna otra imagen etiquetada, también llamadas imágenes \"colgantes\". Se crean a menudo después de construir nuevas versiones de una imagen, y las versiones anteriores que no están etiquetadas se quedan atrás
+
 
 ### Identificar imágenes huérfanas
 ```
